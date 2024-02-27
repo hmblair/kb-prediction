@@ -3,7 +3,7 @@
 import os 
 if not os.path.exists('logs/wandb'):
     os.makedirs('logs/wandb')
-os.environ['WANDB_PROJECT'] = 'ContrastiveStructureLearning'
+os.environ['WANDB_PROJECT'] = 'Kb-Prediction'
 
 import torch
 torch.set_float32_matmul_precision('medium')
