@@ -1,0 +1,32 @@
+# ribonanzanet.yaml
+
+model:
+  class_path: lib.training.modules.FinetuningModuleDenseHead
+  init_args:
+    model:
+      class_path: models.ribonanzanet.RibonanzaNet
+    out_size: 2
+    pooling:
+      type: 'mean'
+      dim: -2
+      nonlinearity: exp
+    objectives:
+    objectives:
+      loss:
+        class_path: torch.nn.MSELoss
+    name: ribonanzanet
+
+trainer:
+  max_epochs: 100
+  callbacks:
+    - class_path: lib.training.finetuning.unfreeze_scheduler.FineTuningScheduler
+      init_args:
+        layers_to_unfreeze: [5]
+        unfreeze_rate: 5
+
+data:
+  batch_size: 64
+  input_variables:
+    - sequence_embedding
+
+
