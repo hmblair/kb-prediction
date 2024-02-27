@@ -6,12 +6,12 @@ model:
     model:
       class_path: lib.models.recurrent.RecurrentEncoderDecoderWithAttention
       init_args:
-        embedding_dim: 64
-        hidden_size: 64
+        embedding_dim: 32
+        hidden_size: 32
         out_size: 2
-        num_encoder_layers: 8
-        num_decoder_layers: 8
-        dropout: 0.4
+        num_encoder_layers: 6
+        num_decoder_layers: 6
+        dropout: 0.2
         num_embeddings: 4
         num_heads: 8
         attention_dropout: 0.0
