@@ -1,0 +1,29 @@
+# lstm.yaml
+
+model:
+  class_path: lib.training.modules.PipelineModule
+  init_args:
+    model:
+      class_path: lib.models.recurrent.RecurrentEncoderDecoderWithAttention
+      init_args:
+        embedding_dim: 64
+        hidden_size: 64
+        out_size: 2
+        num_encoder_layers: 8
+        num_decoder_layers: 8
+        dropout: 0.4
+        num_embeddings: 15
+        num_heads: 8
+        attention_dropout: 0.0
+        pooling:
+          type: mean
+          dim: -2
+    objectives:
+      loss:
+        class_path: torch.nn.MSELoss
+    name: lstm
+
+data:
+  batch_size: 64
+  input_variables:
+    - sequence_embedding
