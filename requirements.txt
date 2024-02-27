@@ -1,3 +1,4 @@
 # requirements.txt
 
+einops
 -r lib/requirements.txt
