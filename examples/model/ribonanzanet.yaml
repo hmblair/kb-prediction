@@ -21,7 +21,7 @@ trainer:
   callbacks:
     - class_path: lib.training.finetuning.unfreeze_scheduler.FineTuningScheduler
       init_args:
-        layers_to_unfreeze: [5]
+        layers_to_unfreeze: [-1]
         unfreeze_rate: 5
 
 data:
